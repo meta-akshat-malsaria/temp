@@ -12,6 +12,7 @@ class Area{
 	
 	/**
      * Calculates area of Triangle.
+     * Precondition :- Width and Height cannot be negative.
      * @param width of triangle.
      * @param height of triangle.
      * @return area of triangle.
@@ -23,6 +24,7 @@ class Area{
 	  
 	/**
      * Calculates area of Rectangle.
+     * Precondition :- Width and Height cannot be negative.
      * @param width of rectangle.
      * @param height of rectangle.
      * @return area of rectangle.
@@ -34,6 +36,7 @@ class Area{
 	  
     /**
      * Calculates area of Square.
+     * Precondition :- Width cannot be negative.
      * @param width side of square.
      * @return area of square.
      */ 
@@ -43,7 +46,8 @@ class Area{
     }
 	  
     /**
-     * Calculates rea of Circle.
+     * Calculates area of Circle.
+     * Precondition :- Radius cannot be negative.
      * @param radius of circle.
      * @return area of circle.
      */  
@@ -56,24 +60,63 @@ class Area{
     scanner=new Scanner(System.in);
 	System.out.println("Let's calculate area of TRIANGLE");
 	System.out.print("Enter Width and Height :");
+	try{
 	double width=scanner.nextDouble();
 	double height=scanner.nextDouble();
-	System.out.println("Area Of Triangle is : "+areaOfTriangle(width,height));
-		    
+	if(height<=0 || width<=0){
+		throw new NegativeNumberException();
+	}
+	else{
+		System.out.println("Area Of Triangle is : "+areaOfTriangle(width,height));
+	}
+	}catch(NegativeNumberException e){
+		System.out.println(e.getMessage());
+	}
+	
+	
 	System.out.println("Let's calculate area of RECTANGLE");
 	System.out.print("Enter Width and Height :");
-	width=scanner.nextDouble();
-	height=scanner.nextDouble();
-    System.out.println("Area Of Rectangle is : "+areaOfRectangle(width,height));
-		    
+	try{
+    double length=scanner.nextDouble();
+	double breadth=scanner.nextDouble();
+	if(length<=0 || breadth<=0){
+		throw new NegativeNumberException();
+	}
+	else{
+		System.out.println("Area Of Rectangle is : "+areaOfRectangle(length,breadth));
+	}
+	}catch(NegativeNumberException e){
+		System.out.println(e.getMessage());
+	}
+	
+	
     System.out.println("Let's calculate area of SQUARE");
-	System.out.print("Enter Width :");
-	width=scanner.nextDouble();
-	System.out.println("Area Of Square is : "+areaOfSquare(width));
-		    
+	System.out.print("Enter Side :");
+	try{
+	double side=scanner.nextDouble();
+	if(side<=0){
+		throw new NegativeNumberException();
+	}
+	else{
+		System.out.println("Area Of Square is : "+areaOfSquare(side));
+	}
+	}catch(NegativeNumberException e){
+		System.out.println(e.getMessage());
+	}
+	
+	
     System.out.println("Let's calculate area of CIRCLE");
 	System.out.print("Enter Radius :");
+	try{
 	double radius=scanner.nextDouble();
-	System.out.println("Area Of Circle is : "+areaOfCircle(radius));
+	if(radius<=0){
+		throw new NegativeNumberException();
+	}
+	else{
+		System.out.println("Area Of Circle is : "+areaOfCircle(radius));
     }
+	}catch(NegativeNumberException e){
+		System.out.println(e.getMessage());
+	}
+}
 }
