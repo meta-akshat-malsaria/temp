@@ -1,24 +1,35 @@
 package abstractAndConcreteDataTypes;
 public final class intSet {
+	
 	private final int array[] = new int[1000];//To store the Set elements. It removes the duplicates.
-	private int arrayIndex=0;//It is the size of array(Set). When a new element is added it increases by 1
-	public intSet(int [] a,int size){
+	private int arrayIndex=0;//It is the size of array set.When a new element is added it increases by 1.
+	
+	/**
+	 * A constructor of intSet class that form a set out of all the inputs receive in arr array.
+	 * @param a
+	 * @param size
+	 */
+	public intSet(int [] arr,int size){
 		int i=0;
 		for(i=0;i<size;i++){
 			boolean present=false;
 			for(int j=0;j<arrayIndex;j++){
-				if(array[j]==a[i]){
+				if(array[j]==arr[i]){
 					present=true;
 					break;
 				}
 			}
 			if(!present){
-				array[arrayIndex]=a[i];
+				array[arrayIndex]=arr[i];
 				arrayIndex+=1;
 				}
 			
 		}	
 	}
+	
+	/**
+	 * This method prints all the elements of set.
+	 */
 	public void printSet(){
 		if(arrayIndex!=0){
 		System.out.println("Set elements are following:");
@@ -28,6 +39,12 @@ public final class intSet {
 		System.out.println();
 		}
 	}
+	
+	/**
+	 * This method tells if an element is present or not in the set.
+	 * @param x element whose presence is to be checked.
+	 * @return true or false.
+	 */
 	public boolean isMember(int x){
 		int i=0;
 		for(i=0;i<arrayIndex;i++){
@@ -39,16 +56,26 @@ public final class intSet {
 	public int size(){
 		return arrayIndex;
 	}
-	public boolean isSubSet(intSet s){
+	
+	/**
+	 * This method checks whether a set is a subset of the main set or not.
+	 * @param newSet set to be checked for subset.
+	 * @return true or false.
+	 */
+	public boolean isSubSet(intSet newSet){
 		int i=0;
-		for(i=0;i<s.arrayIndex;i++){
-			//check whether all the elements of s are present in Original Set in or not
-			if(!this.isMember(s.array[i])){
+		for(i=0;i<newSet.arrayIndex;i++){
+			if(!this.isMember(newSet.array[i])){
 				return false;
 			}
 		}
 		return true;
 	}
+	
+	/**
+	 * This method returns the compliment set 
+	 * @return intSet type.
+	 */
 	public intSet getComplement(){
 		int arr[] = new int[1000];
 		int complementIndex=0;
@@ -62,30 +89,38 @@ public final class intSet {
 		intSet complementSet = new intSet(arr,complementIndex);
 		return complementSet;
 	}
-	public intSet union(intSet s2){
+	
+	/**
+	 * Method to make union of two sets
+	 * @param newSet new set to form union 
+	 * @return union
+	 */
+	public intSet union(intSet newSet){
 		int arr[] = new int[1000];
 		int i=0,j=0,index=0;
 		for(i=0;i<this.arrayIndex;i++){
 			boolean present=false;
-			for(j=0;j<index;j++){
-				if(arr[j]==this.array[i]){
-					present=true;
+			if(i!=0){
+				for(j=0;j<index;j++){
+					if(arr[j]==this.array[i]){
+						present=true;
+					}
 				}
 			}
 			if(!present){
 				arr[index]=this.array[i];
 				index+=1;
 			}
-		}
-		for(i=0;i<s2.arrayIndex;i++){
+			}
+			for(i=0;i<newSet.arrayIndex;i++){
 			boolean present=false;
 			for(j=0;j<index;j++){
-				if(arr[j]==s2.array[i]){
+				if(arr[j]==newSet.array[i]){
 					present=true;
 				}
 			}
 			if(!present){
-				arr[index]=s2.array[i];
+				arr[index]=newSet.array[i];
 				index+=1;
 			}
 		}

@@ -5,18 +5,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Poly {
+	private static Scanner scanner;
 	//Use Map to store the single variable polynomial terms
 	//Key represent Power of variable and Value represent non-zero Coefficient
 	private final Map<Integer, Integer> polynomial = new HashMap<Integer, Integer>();
 	/**
 	 * Constructor to initialize the polynomial map variable.
-	 * @param arr:2D array having values of power of variable and its non-zero coefficients. 
-	 * @param rows: Number of Terms in the polynomial
+	 * @param arr 2D array having values of power of variable and its non-zero coefficients. 
+	 * @param rows  Number of Terms in the polynomial
 	 */
 	public Poly(int[][] arr,int terms){
 		int i;
 		for(i=0;i<terms;i++){
-			//if the term is already present then add this term's coefficient to already present term's coefficient
+			/*
+			 * if the term is already present then add this term's coefficient to 
+			 * already present term's coefficient
+			 */
 			if(polynomial.containsKey(arr[i][0]))
 				//update the existing term
 				polynomial.put(arr[i][0],polynomial.get(arr[i][0]+arr[i][1]));
@@ -25,8 +29,9 @@ public class Poly {
 		}
 	}
 	/**
-	 * Another constructor. If we want to create polynomial object with the help of Map then we will use this constructor.
-	 * @param poly: Map which is going to bee copied in polynomial instance to make the actual object.
+	 * Another constructor. If we want to create polynomial object with the help of 
+	 * Map then we will use this constructor.
+	 * @param poly Map which is going to bee copied in polynomial instance to make the actual object.
 	 */
 	public Poly(Map<Integer, Integer> poly){
 		polynomial.putAll(poly);
@@ -47,7 +52,7 @@ public class Poly {
 	}
 	/**
 	 * Evaluates the polynomial for a particular value of x
-	 * @param x: Value at which polynomial is going to be evaluated
+	 * @param x Value at which polynomial is going to be evaluated
 	 * @return float result of evaluation 
 	 */
 	public float evaluate(float x){
@@ -119,17 +124,17 @@ public class Poly {
 		System.out.println("5. Exit");
 		int terms;
 		int choice;
-		Scanner sc = new Scanner(System.in);
-		choice = sc.nextInt();
+		scanner= new Scanner(System.in);
+		choice = scanner.nextInt();
 		if(choice!=5){
 		System.out.println("Enter Number of terms in the polynomial:");
-		terms = sc.nextInt();
+		terms = scanner.nextInt();
 		//Each array will contain two elements first is power of variable and another one is coefficient
 		int polyArray1[][] = new int[terms][2];
 		System.out.print("Please enter the elements of the polynomial(First Power of variable then its non-zero coefficient):");
 		for(int i=0; i<terms; i++){
 			for(int j=0; j<2; j++){
-				polyArray1[i][j] = sc.nextInt();
+				polyArray1[i][j] = scanner.nextInt();
 			}
 		}
 		Poly poly1 = new Poly(polyArray1,terms);
@@ -139,7 +144,7 @@ public class Poly {
 		case 1:
 			float value;
 			System.out.println("Enter the value:");
-			value = sc.nextFloat();
+			value = scanner.nextFloat();
 			System.out.println(poly1.evaluate(value));
 			break;
 		case 2:
@@ -149,13 +154,16 @@ public class Poly {
 		case 3:
 			int terms1;
 			System.out.println("Enter Number of terms for second polynomial:");
-			terms1 = sc.nextInt();
-			//Each array will contain two elements first is power of variable and another one is coefficient
+			terms1 = scanner.nextInt();
+			/*
+			 * Each array will contain two elements first is power of variable and 
+			 * another one is coefficient
+			 */
 			int polyArray2[][] = new int[terms1][2];
 			System.out.println("Please enter the elements of Second Polynomial");
 			for(int i=0; i<terms1; i++){
 				for(int j=0; j<2; j++){
-					polyArray2[i][j]=sc.nextInt();
+					polyArray2[i][j]=scanner.nextInt();
 				}
 			}
 			Poly poly2 = new Poly(polyArray2,terms1);
@@ -167,13 +175,16 @@ public class Poly {
 		case 4:
 			int terms2;
 			System.out.println("Enter Number of terms for second polynomial:");
-			terms2 = sc.nextInt();
-			//Each array will contain two elements first is power of variable and another one is coefficient
+			terms2 = scanner.nextInt();
+			/*
+			 * Each array will contain two elements first is power of variable and
+			 * another one is coefficient
+			 */
 			int polyArray3[][] = new int[terms2][2];
 			System.out.println("Please enter the elements of Second Polynomial");
 			for(int i=0; i<terms2; i++){
 				for(int j=0; j<2; j++){
-					polyArray3[i][j]=sc.nextInt();
+					polyArray3[i][j]=scanner.nextInt();
 				}
 			}
 			Poly poly3 = new Poly(polyArray3,terms2);
@@ -188,7 +199,6 @@ public class Poly {
 			break;
 		}
 		}
-		//closing the scanner object
-		sc.close();
+		
 	}
 }
