@@ -6,9 +6,11 @@ import java.util.Map;
 
 public class Poly {
 	private static Scanner scanner;
+	
 	//Use Map to store the single variable polynomial terms
 	//Key represent Power of variable and Value represent non-zero Coefficient
 	private final Map<Integer, Integer> polynomial = new HashMap<Integer, Integer>();
+	
 	/**
 	 * Constructor to initialize the polynomial map variable.
 	 * @param arr 2D array having values of power of variable and its non-zero coefficients. 

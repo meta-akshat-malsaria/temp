@@ -2,6 +2,8 @@ package abstractAndConcreteDataTypes;
 
 import java.util.Scanner;
 
+
+
 public class IntSetMain {
 	private static Scanner scanner; 
 	public static void main(String []args){
@@ -12,8 +14,20 @@ public class IntSetMain {
 		int setArray[] = new int[size];
 		if(size!=0)
 			System.out.println("Enter the set elements");
-		for(int i=0;i<size;i++)
-			setArray[i] = scanner.nextInt();
+		for(int i=0;i<size;i++){
+			try{
+				int x = scanner.nextInt();
+				if(x>1000){
+					throw new OutofRangeException();
+				}
+				else{
+					setArray[i] =x;
+				}
+			}catch(OutofRangeException e){
+				System.out.println(e.getMessage());
+			}
+		}
+	
 		intSet set = new intSet(setArray,size);
 		set.printSet();
 		System.out.println("Please choose from the following options");
