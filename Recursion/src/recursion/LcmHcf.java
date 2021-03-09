@@ -3,17 +3,7 @@ import java.util.Scanner;
 public class LcmHcf {
 	private static Scanner scanner;
 	public static int lcmCalculation(int n1,int n2){
-		int temp,i=2,res;
-		if(n1>n2)
-			res=n1;
-		else
-			res=n2;
-	   temp=res;
-	   while(res%n1!=0 || res%n2!=0){
-		   res=temp*i;
-		   i++;
-	   }
-	   return res;
+		return (n1 / hcf(n1,n2)) * n2;
 	}
 	public static int hcf(int n1, int n2)
     {
