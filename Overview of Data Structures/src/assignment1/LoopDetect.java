@@ -56,12 +56,12 @@ public class LoopDetect {
 	// main method
 	public static void main(String[] args) {
 		LoopDetect list=new LoopDetect();
+		list.addToList(new Node(1));
 		list.addToList(new Node(2));
 		list.addToList(new Node(3));
 		list.addToList(new Node(4));
 		list.addToList(new Node(5));
 		list.addToList(new Node(6));
-		list.addToList(new Node(7));
 		list.printList();
 		list.addLoopToList();
 		boolean checkloop=list.findLoop();

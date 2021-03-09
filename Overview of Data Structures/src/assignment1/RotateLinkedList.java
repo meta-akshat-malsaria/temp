@@ -1,74 +1,152 @@
 package assignment1;
 
 public class RotateLinkedList {
-	public Node head;
-	// Node class
-	public static class Node{
-		int value;
+
+	Node head;
+	static class Node{
+		int data;
 		Node next;
-		// Node class constructor
-		public Node(int val) {
-			this.value=val;
+		Node(int d){
+			data=d;
+			next = null;
 		}
 	}
-	// Method to add node to linked list
-	public void addToList(Node node){
-		if (head==null) {
-			head=node;
-		}else {
-			Node temp=head;
-			while (temp.next!=null) {
-				temp=temp.next;
+	
+	/**
+	 * insert Method to insert a new Node Inside the Linked lIst
+	 * @param list
+	 * @param data
+	 * @return
+	 */
+	
+	public static RotateLinkedList insert(RotateLinkedList list,int data)
+	{
+		Node newNode = new Node(data);
+		newNode.next = null;
+		if(list.head ==null)
+		{
+			list.head = newNode;
+		}
+		else
+		{
+			Node last = list.head;
+			while(last.next!=null)
+			{
+				last = last.next;
 			}
-			temp.next=node;
+			last.next = newNode;
 		}
+		return list;
 	}
-	// Method to shift Sub linked list
-	public void shiftSubList(int left, int right, int noOfShift){
-		Node start=head;
-		Node last = head;
-		Node tempNode;
-		int count=1;
-		int tempvalue;
-		while (count<left) {
-			start=start.next;
-			count++;
-		}
-		count=1;
-		while (count<right) {
-			last=last.next;
-			count++;
-		}
-		for (int i = 0; i < noOfShift; i++) {
-			tempvalue=start.value;
-			tempNode=start;
-			for (int j = 0; j < right-left; j++) {
-				tempNode.value=tempNode.next.value;
-				tempNode=tempNode.next;
-			}
-			tempNode.value=tempvalue;
-		}
-	}
-	// method to print linked list
-	public void printList(){
-		Node temp=head;
-		while(temp!=null){
-			System.out.print(temp.value+" ");
-			temp=temp.next;
-		}
+	
+	/**
+	 * printList Method to print all The Nodes Data present in the Linked List 
+	 * @param list
+	 */
+	
+	public static void printList(RotateLinkedList list)
+	{
+		Node currentNode = list.head;
 		System.out.println();
+		System.out.println("The List is ===>> ");
+		while(currentNode!=null)
+		{
+			System.out.print(currentNode.data+" -> ");
+			currentNode = currentNode.next;
+		}
 	}
-	// main method
-	public static void main(String[] args) {
-		RotateLinkedList list=new RotateLinkedList();
-		list.addToList(new Node(2));
-		list.addToList(new Node(3));
-		list.addToList(new Node(4));
-		list.addToList(new Node(5));
-		list.addToList(new Node(6));
-		list.addToList(new Node(7));
-		list.printList();
-		list.shiftSubList(2, 5, 2);
-		list.printList();
+	
+	/**
+	 * rotateSubList Method rotates the Sublist clockwise.
+	 * @param head -->> Here head is the Head of the linked list passed as parameter.
+	 * @param l -->> Here l is the left position of the sublist in the linked List.
+	 * @param r -->> Here r is the right position of the sublist in the linked list.
+	 * @param n -->> Here n is the No. of Rotation we have to perform.
+	 */
+	
+	static void rotateSubList(Node head,int l,int r,int n)
+	{
+		int size = r-l+1;
+		if(n>size)
+		{
+			n=n%size;
+		}
+		if(n==0 || n==size)
+		{
+			Node temp = head;                
+			while(temp!=null)
+			{
+				System.out.println(temp.data);
+				temp = temp.next;
+				
+			}
+			return;
+		}
+		Node link = null;
+		if(l==1)
+		{
+			link =head;
+		}
+		Node c = head;
+		int count = 0;
+		Node end = null;
+		Node previous = null;
+		while(c!=null)
+		{
+			count++;
+			if(count==l-1)
+			{
+				previous = c;
+				link=c.next;
+			}
+			if(count==r-n)
+			{
+				if(l==1)
+				{
+					end = c;
+					head = c.next;
+				}
+				else
+				{
+					end = c;
+					previous.next=c.next;
+				}
+			}
+			if(count==r)
+			{
+				Node d = c.next;
+				c.next = link;
+				end.next = d;
+				Node temp = head;
+				while(temp!=null)
+				{
+					System.out.print(temp.data +" -> ");
+					temp = temp.next;
+				}
+				return;
+			}
+			c = c.next;
+		}
+	}
+
+	/**
+	 * This is the Main Method
+	 * @param args
+	 */
+	
+	public static void main(String[] args)
+	{
+		RotateLinkedList list = new RotateLinkedList();
+		list = insert(list,2);
+		list = insert(list,3);
+		list = insert(list,4);
+		list = insert(list,5);
+		list = insert(list,6);
+		list = insert(list,7);
+		printList(list);
+		System.out.println();
+		int l=2,r=5,n=2;
+		System.out.println("After Rotation of Sublist ===>>");
+		rotateSubList(list.head,l,r,n);
 	}
 }
