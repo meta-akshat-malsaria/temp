@@ -12,7 +12,7 @@ public class Point {
     }
 
     /**
-     * @return the xCoordinate
+     * @return the x Coordinate.
      */
     public double getxCoordinate() {
         return xCoordinate;
