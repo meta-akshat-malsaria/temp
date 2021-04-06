@@ -1,0 +1,123 @@
+body{
+    background-color: rgb(239,243,246);
+}
+.logo{
+    font-size: 3rem;
+}
+
+#dropdownMenuButton:active,.advanced-ui-dropdown:hover .advanced-ui-dropdown, .dropdown .btn.btn-secondary{
+    background-color: transparent;
+    border-color: none;
+    color: #212529;
+    border: none;
+}
+.advanced-ui button:hover{
+    color: blue;
+}
+
+.dropdown .dropdown-menu{
+    border:none;
+    background-color: transparent;
+}
+
+.navigation-items button{
+    border: none;
+    background-color: transparent;
+}
+
+
+
+.collapsing {
+    transition: height 0.5s;
+
+}
+
+.navigation-links button, .navigation-links a{
+    color:black
+}
+/* changing the color of each anchor in left side bar */
+.navigation-links button, .navigation-links a{
+    color:black;
+    text-decoration: none;
+}
+.navigation-links button:hover, .navigation-links a:hover{
+    color:blue;
+}
+
+.list-unstyled li a{
+    color: rgba(0, 0, 0, 0.567);
+    text-decoration: none;
+    
+}
+.list-unstyled li a:hover{
+    color: black;
+}
+/* customizing the search icon in nav bar */
+.custom-search{
+    border: none;
+    background-color: transparent;
+    border-color: transparent;
+}
+/* customizing the navbar */
+.navbar{
+    background-color:rgb(91,107,232);
+}
+/* customizing the left side nav bar */
+.left-side{
+    background-color: white;
+}
+/* customizing the right side */
+.right-side{
+    padding-left: 0rem;
+    padding-right: 0px !important;
+}
+/* customizing the placeholder color */
+.custom-search::placeholder{
+    color:rgba(255, 255, 255, 0.575);
+    font-size: small;
+}
+/* Customizing the inline form present in the navbar */
+.search-container{
+    background-color: rgb(109,123,235);
+}
+/* Styling the anchor tag in the search bar */
+.search-anchor{
+    color: rgba(255, 255, 255, 0.575);
+}
+/* Styling the navbar anchor tags */
+.custom-navbar a{
+    color: rgba(255, 255, 255, 0.836);
+}
+/* styling the super script */
+.mail{
+    color:white;
+    background-color: red;
+    border-radius: 0.2rem;
+}
+/* Styling the notification icon */
+.notification{
+    color:white;
+    background-color: rgb(0, 255, 76);
+    border-radius: 0.2rem;
+}
+/* styling the breadcrumb */
+.breadcrumb{
+    background-color: transparent;
+}
+/* Customizing the right side */
+.right-side{
+    background-color: rgb(239,243,246);
+}
+/* Styling the footer */
+footer p{
+    text-align: center;
+}
+/* Styling the icons in the right side */
+.right-icons li a:hover{
+    color: green;
+}
+/* Changing the background color of the footer */
+footer{
+    background-color: rgb(249,249,249);
+    padding: 1.5rem;
+}

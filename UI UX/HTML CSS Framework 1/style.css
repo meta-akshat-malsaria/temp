@@ -1,0 +1,49 @@
+/* Styling the search icon */
+.search-icon{
+    color: black;
+    height: 20px;
+    width: 20px;
+}
+/* Styling the logo of the webpage */
+.header-logo{
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 2.25rem;
+}
+/* Styling the hero section of the webpage */
+.hero-section{
+    background-color: rgb(52,58,64);
+}
+/* Styling the main heading of the webpage */
+.hero-section h1{
+    color: white;
+    font-style: italic;
+    font-size: 3.5em;
+    font-family:  "Playfair Display", Georgia, "Times New Roman", serif;;
+}
+/* Styling the hero section content */
+.hero-section p{
+    font-size: 115%;
+    color: white;
+}
+/* Styling the navigation link present in the hero section */
+.hero-section a{
+    font-size: 110%;
+    text-decoration: none;
+    color: white;
+}
+/* Styling the articles headings */
+.articles h1,h2,h3{
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+/* Styling the bottom anchor tags */
+.bottom-anchor{
+    border-radius: 1.4em;
+}
+/* Styling the footer */
+.blog-footer{
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+}
